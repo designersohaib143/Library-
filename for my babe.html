@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>A Beautiful Message for You</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Rainbow Gradient Background */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(270deg, #ffdde1, #ee9ca7, #fad0c4, #fbc2eb, #a1c4fd, #c2e9fb);
+      background-size: 1200% 1200%;
+      animation: rainbowBG 20s ease infinite;
+    }
+
+    @keyframes rainbowBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 60px auto;
+      background: white;
+      border-radius: 25px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      padding: 40px 30px;
+      text-align: center;
+      animation: fadeIn 2s ease;
+      border: 2px solid #ffb6c1;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 50px;
+      color: #d6336c;
+      margin-bottom: 10px;
+    }
+
+    .bismillah {
+      font-size: 22px;
+      color: #5c5c5c;
+      margin-bottom: 25px;
+      font-family: 'Great Vibes', cursive;
+    }
+
+    input {
+      padding: 12px;
+      border: 2px solid #ccc;
+      border-radius: 12px;
+      font-size: 16px;
+      width: 80%;
+      margin-bottom: 15px;
+      transition: 0.3s;
+    }
+
+    input:focus {
+      border-color: #ff69b4;
+      box-shadow: 0 0 10px rgba(255, 105, 180, 0.3);
+      outline: none;
+    }
+
+    button {
+      padding: 12px 26px;
+      background: linear-gradient(135deg, #f093fb, #f5576c);
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.4s;
+    }
+
+    button:hover {
+      background: linear-gradient(135deg, #fc6767, #ec008c);
+    }
+
+    .message {
+      display: none;
+      margin-top: 40px;
+      animation: slideUp 1.5s ease;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    p {
+      font-size: 18px;
+      color: #333;
+      line-height: 1.8;
+      margin: 15px 0;
+    }
+
+    .dua {
+      background: #fff0f5;
+      padding: 15px;
+      border-left: 5px solid #f06292;
+      margin-top: 30px;
+      font-style: italic;
+      border-radius: 8px;
+    }
+
+    .signature {
+      margin-top: 40px;
+      font-size: 20px;
+      color: #555;
+    }
+
+    .heart {
+      color: #ff3366;
+      font-size: 28px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Assalamualaikum 🌸</h1>
+    <p class="bismillah">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ</p>
+    <p>Please answer a few sweet questions below... 💌</p>
+
+    <input type="text" id="name" placeholder="Your Beautiful Name"><br>
+    <input type="text" id="color" placeholder="Your Favorite Color"><br>
+    <input type="text" id="value" placeholder="A Quality That Defines You"><br>
+    <input type="text" id="memory" placeholder="A Memory You Cherish"><br>
+    <button onclick="revealMessage()">Reveal Your Message</button>
+
+    <div class="message" id="messageCard">
+      <h1 id="greeting">Dear Friend,</h1>
+      <p>
+        Just like the color <span id="favColor"></span>, you brighten every room you're in. <br>
+        Your heart reflects <span id="valueWord"></span>, and that's what makes you so beautiful inside out.
+      </p>
+      <p>
+        I still smile remembering <span id="memoryText"></span> — it’s a memory I hold close. 💖 <br>
+        Allah has truly gifted me your friendship.
+      </p>
+      <p class="dua">
+        "May Allah ﷻ guide your steps, soften your heart, bless your soul, and grant you the highest Jannah."
+      </p>
+      <p class="signature">
+        Always your best friend, <br>
+        With lots of duas and love <span class="heart">❤️</span>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    function revealMessage() {
+      const name = document.getElementById("name").value.trim();
+      const color = document.getElementById("color").value.trim();
+      const value = document.getElementById("value").value.trim();
+      const memory = document.getElementById("memory").value.trim();
+
+      if (name && color && value && memory) {
+        document.getElementById("greeting").innerText = `Dear ${name},`;
+        document.getElementById("favColor").innerText = color;
+        document.getElementById("valueWord").innerText = value;
+        document.getElementById("memoryText").innerText = memory;
+        document.getElementById("messageCard").style.display = "block";
+        document.getElementById("messageCard").scrollIntoView({ behavior: "smooth" });
+      } else {
+        alert("Please fill in all the answers, lovely 🌷");
+      }
+    }
+  </script>
+
+</body>
+</html>
